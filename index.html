@@ -29,6 +29,10 @@
       margin: 0;
       padding: 0;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
     
     body {
       background-color: var(--bg);
@@ -36,6 +40,21 @@
       font-family: var(--font-body);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+    }
+
+    /* Scrollbar Personalizada */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
     }
     
     img {
@@ -234,10 +253,17 @@
       margin: 40px 0 20px;
       letter-spacing: 1px;
     }
-/* ══ TARJETAS ══ */
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 60px 0;
+    }
+
+    /* ══ TARJETAS ══ */
     .grid {
       display: grid;
-      /* Lo bajamos de 300px a 240px para el tamaño mediano perfecto */
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 20px;
     }
@@ -366,22 +392,63 @@
       transform: scale(0.98);
     }
 
-   /* ══ RESPONSIVE ══ */
+    /* ══ FOOTER ══ */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 4vw;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+
+    .footer-links p {
+      margin-top: 10px;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-right a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .footer-right p {
+      margin-top: 10px;
+      color: var(--gray);
+      font-size: 0.8rem;
+    }
+
+    /* ══ RESPONSIVE ══ */
     @media (max-width: 768px) {
       .hero { padding: 140px 4vw 60px; }
       .hero-title { font-size: 3.5rem; }
       .section-title { font-size: 2.2rem; }
       
-      /* Aquí ponemos 2 columnas en teléfonos para que se vean medianas */
       .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       
-      /* Ajustamos los textos para que encajen finos en el celular */
       .card-badge { font-size: 0.9rem; top: 10px; left: 10px; padding: 2px 6px; }
       .card-price-float { font-size: 1.1rem; top: 10px; right: 10px; padding: 2px 6px; }
       .card-info { padding: 15px; }
       .card-title { font-size: 0.95rem; margin-bottom: 4px; }
       .card-desc { font-size: 0.75rem; margin-bottom: 15px; }
       .btn-comprar { font-size: 0.8rem; padding: 10px; }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+
+      .footer-right { text-align: center; }
     }
   </style>
 </head>
@@ -402,7 +469,7 @@
     <a href="#mexico" class="nav-pill">MÉXICO</a>
     <a href="#ganaderas" class="nav-pill">GANADERAS</a>
     <a href="#racing" class="nav-pill">RACING</a>
-    <a href="#looney-tunes" class="nav-pill">Looney Tunes </a>
+    <a href="#looney-tunes" class="nav-pill">LOONEY TUNES</a>
   </div>
 
   <!-- PORTADA -->
@@ -1201,7 +1268,9 @@
         </div>
         
       </div>
-    </section><div class="divider"></div>
+    </section>
+
+    <div class="divider"></div>
 
     <!-- ══ GANADERAS ══ -->
     <section id="ganaderas">
@@ -2385,197 +2454,194 @@
         </div>
 
       </div>
-      
+    </section>
 
-<div class="divider"></div>
+    <div class="divider"></div>
 
-<!-- ══ LOONEY TUNES CAPS ══ -->
-<section id="looney-tunes">
-  <div class="section-header">
-    <h2 class="section-title">LOONEY TUNES 🐰</h2>
-    <span class="item-count">10 MODELOS</span>
-  </div>
-  <div class="grid">
-    
-    <!-- Gorra L1 -->
-    <div class="card">
-      <div class="card-badge">PREMIUM</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/L1.jpeg" loading="lazy" alt="Tío Rico Silver"/></div>
-      <div class="card-info">
-        <h3 class="card-title">Tío Rico — Silver Hustle</h3>
-        <p class="card-desc">Negra · Bordado Plateado 3D</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+    <!-- ══ LOONEY TUNES CAPS ══ -->
+    <section id="looney-tunes">
+      <div class="section-header">
+        <h2 class="section-title">LOONEY TUNES 🐰</h2>
+        <span class="item-count">10 MODELOS</span>
       </div>
-    </div>
+      <div class="grid">
+        
+        <!-- Gorra L1 -->
+        <div class="card">
+          <div class="card-badge">PREMIUM</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/L1.jpeg" loading="lazy" alt="Tío Rico Silver"/></div>
+          <div class="card-info">
+            <h3 class="card-title">Tío Rico — Silver Hustle</h3>
+            <p class="card-desc">Negra · Bordado Plateado 3D</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
 
-    <!-- Gorra L2 -->
-    <div class="card">
-      <div class="card-badge">3XOLOTL</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/L2.jpeg" loading="lazy" alt="Pink Panther Smokin"/></div>
-      <div class="card-info">
-        <h3 class="card-title">Pink Panther — Smokin'</h3>
-        <p class="card-desc">Negra · Bordado Global</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
-      </div>
-    </div>
+        <!-- Gorra L2 -->
+        <div class="card">
+          <div class="card-badge">3XOLOTL</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/L2.jpeg" loading="lazy" alt="Pink Panther Smokin"/></div>
+          <div class="card-info">
+            <h3 class="card-title">Pink Panther — Smokin'</h3>
+            <p class="card-desc">Negra · Bordado Global</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
 
-    <!-- Gorra L3 -->
-    <div class="card">
-      <div class="card-badge">PREMIUM</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/S4.jpg" loading="lazy" alt="Tío Rico Wingz"/></div>
-      <div class="card-info">
-        <h3 class="card-title">Tío Rico — $100 Wingz</h3>
-        <p class="card-desc">Parche Frontal · Ala Neón</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
-      </div>
-    </div>
+        <!-- Gorra L3 -->
+        <div class="card">
+          <div class="card-badge">PREMIUM</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/S4.jpg" loading="lazy" alt="Tío Rico Wingz"/></div>
+          <div class="card-info">
+            <h3 class="card-title">Tío Rico — $100 Wingz</h3>
+            <p class="card-desc">Parche Frontal · Ala Neón</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
 
-    <!-- Gorra L4 -->
-    <div class="card">
-      <div class="card-badge">EXCLUSIVA</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/L4.jpeg" loading="lazy" alt="Tío Rico Illuminati"/></div>
-      <div class="card-info">
-        <h3 class="card-title">Tío Rico — White Illuminati</h3>
-        <p class="card-desc">Corona Blanca · Visera Impresa</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
-      </div>
-    </div>
+        <!-- Gorra L4 -->
+        <div class="card">
+          <div class="card-badge">EXCLUSIVA</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/L4.jpeg" loading="lazy" alt="Tío Rico Illuminati"/></div>
+          <div class="card-info">
+            <h3 class="card-title">Tío Rico — White Illuminati</h3>
+            <p class="card-desc">Corona Blanca · Visera Impresa</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
 
-    <!-- Gorra L5 -->
-    <div class="card">
-      <div class="card-badge">CUERO</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/L5.jpeg" loading="lazy" alt="Tío Rico Golden Leather"/></div>
-      <div class="card-info">
-        <h3 class="card-title">Tío Rico — Golden Leather</h3>
-        <p class="card-desc">Moneda Oro · Visera Marrón</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
-      </div>
-    </div>
+        <!-- Gorra L5 -->
+        <div class="card">
+          <div class="card-badge">CUERO</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/L5.jpeg" loading="lazy" alt="Tío Rico Golden Leather"/></div>
+          <div class="card-info">
+            <h3 class="card-title">Tío Rico — Golden Leather</h3>
+            <p class="card-desc">Moneda Oro · Visera Marrón</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
 
-    <!-- Gorra L6 -->
-    <div class="card">
-      <div class="card-badge">3XOLOTL</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/L6.jpeg" loading="lazy" alt="Pink Panther Gold"/></div>
-      <div class="card-info">
-        <h3 class="card-title">Money Panther — Gold Ed.</h3>
-        <p class="card-desc">Negra · Hilos Dorados Brillantes</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
-      </div>
-    </div>
+        <!-- Gorra L6 -->
+        <div class="card">
+          <div class="card-badge">3XOLOTL</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/L6.jpeg" loading="lazy" alt="Pink Panther Gold"/></div>
+          <div class="card-info">
+            <h3 class="card-title">Money Panther — Gold Ed.</h3>
+            <p class="card-desc">Negra · Hilos Dorados Brillantes</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
 
-    <!-- Gorra L7 -->
-    <div class="card">
-      <div class="card-badge">PREMIUM</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/L7.jpeg" loading="lazy" alt="Tío Rico Classic"/></div>
-      <div class="card-info">
-        <h3 class="card-title">Tío Rico — Rich Uncle</h3>
-        <p class="card-desc">Full Black · Detalles Neón</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
-      </div>
-    </div>
+        <!-- Gorra L7 -->
+        <div class="card">
+          <div class="card-badge">PREMIUM</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/L7.jpeg" loading="lazy" alt="Tío Rico Classic"/></div>
+          <div class="card-info">
+            <h3 class="card-title">Tío Rico — Rich Uncle</h3>
+            <p class="card-desc">Full Black · Detalles Neón</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
 
-    <!-- Gorra L8 -->
-    <div class="card">
-      <div class="card-badge">SUEDE</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/L8.jpeg" loading="lazy" alt="Tío Rico Suede"/></div>
-      <div class="card-info">
-        <h3 class="card-title">Tío Rico — Black Suede</h3>
-        <p class="card-desc">Tela Gamuza · Ojos Plateados</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
-      </div>
-    </div>
+        <!-- Gorra L8 -->
+        <div class="card">
+          <div class="card-badge">SUEDE</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/L8.jpeg" loading="lazy" alt="Tío Rico Suede"/></div>
+          <div class="card-info">
+            <h3 class="card-title">Tío Rico — Black Suede</h3>
+            <p class="card-desc">Tela Gamuza · Ojos Plateados</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
 
-    <!-- Gorra L9 -->
-    <div class="card">
-      <div class="card-badge">URBANA</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/L9.jpeg" loading="lazy" alt="El Chavo Street"/></div>
-      <div class="card-info">
-        <h3 class="card-title">El Chavo — Saco de Billetes</h3>
-        <p class="card-desc">Patrón Monedas · Parche Animado</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
-      </div>
-    </div>
+        <!-- Gorra L9 -->
+        <div class="card">
+          <div class="card-badge">URBANA</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/L9.jpeg" loading="lazy" alt="El Chavo Street"/></div>
+          <div class="card-info">
+            <h3 class="card-title">El Chavo — Saco de Billetes</h3>
+            <p class="card-desc">Patrón Monedas · Parche Animado</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
 
-    <!-- Gorra L10 -->
-    <div class="card">
-      <div class="card-badge">DC COMICS</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/L10.jpeg" loading="lazy" alt="Joker HA HA"/></div>
-      <div class="card-info">
-        <h3 class="card-title">The Joker — HA HA HA</h3>
-        <p class="card-desc">Agujeros Bala · Visera Llamas</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
-      </div>
-    </div>
-    <!-- Gorra L11 -->
-    <div class="card">
-      <div class="card-badge">WARNER</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/L11.jpeg" loading="lazy" alt="Marvin El Marciano"/></div>
-      <div class="card-info">
-        <h3 class="card-title">Marvin — Martian Street</h3>
-        <p class="card-desc">Parche WB · Visera de Cuero</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
-      </div>
-    </div>
+        <!-- Gorra L10 -->
+        <div class="card">
+          <div class="card-badge">DC COMICS</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/L10.jpeg" loading="lazy" alt="Joker HA HA"/></div>
+          <div class="card-info">
+            <h3 class="card-title">The Joker — HA HA HA</h3>
+            <p class="card-desc">Agujeros Bala · Visera Llamas</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
+        <!-- Gorra L11 -->
+        <div class="card">
+          <div class="card-badge">WARNER</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/L11.jpeg" loading="lazy" alt="Marvin El Marciano"/></div>
+          <div class="card-info">
+            <h3 class="card-title">Marvin — Martian Street</h3>
+            <p class="card-desc">Parche WB · Visera de Cuero</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
 
-    <!-- Gorra L12 -->
-    <div class="card">
-      <div class="card-badge">STREET</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/L12.jpeg" loading="lazy" alt="Mickey Hustler"/></div>
-      <div class="card-info">
-        <h3 class="card-title">Mickey — Bandana LV</h3>
-        <p class="card-desc">Visera Blanca · Detalles Rojos</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
-      </div>
-    </div>
+        <!-- Gorra L12 -->
+        <div class="card">
+          <div class="card-badge">STREET</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/L12.jpeg" loading="lazy" alt="Mickey Hustler"/></div>
+          <div class="card-info">
+            <h3 class="card-title">Mickey — Bandana LV</h3>
+            <p class="card-desc">Visera Blanca · Detalles Rojos</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
 
-    <!-- Gorra L13 -->
-    <div class="card">
-      <div class="card-badge">URBANA</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/L13.jpeg" loading="lazy" alt="M Hand Sign"/></div>
-      <div class="card-info">
-        <h3 class="card-title">Urban Hand — M Sign</h3>
-        <p class="card-desc">Negra · Visera de Cuero</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
-      </div>
-    </div>
+        <!-- Gorra L13 -->
+        <div class="card">
+          <div class="card-badge">URBANA</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/L13.jpeg" loading="lazy" alt="M Hand Sign"/></div>
+          <div class="card-info">
+            <h3 class="card-title">Urban Hand — M Sign</h3>
+            <p class="card-desc">Negra · Visera de Cuero</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
 
-    <!-- Gorra L14 -->
-    <div class="card">
-      <div class="card-badge">3XOLOTL</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/L14.jpeg" loading="lazy" alt="Pink Panther Outline"/></div>
-      <div class="card-info">
-        <h3 class="card-title">Pink Panther — Gold Outline</h3>
-        <p class="card-desc">Silueta Dorada · Ojos Rojos</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
-      </div>
-    </div>
+        <!-- Gorra L14 -->
+        <div class="card">
+          <div class="card-badge">3XOLOTL</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/L14.jpeg" loading="lazy" alt="Pink Panther Outline"/></div>
+          <div class="card-info">
+            <h3 class="card-title">Pink Panther — Gold Outline</h3>
+            <p class="card-desc">Silueta Dorada · Ojos Rojos</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
 
-    <!-- Gorra L15 -->
-    <div class="card">
-      <div class="card-badge">PREMIUM</div><div class="card-price-float">$19</div>
-      <div class="card-img-wrapper"><img src="imagenes/L15.jpeg" loading="lazy" alt="Tio Rico Gun"/></div>
-      <div class="card-info">
-        <h3 class="card-title">Tío Rico — Golden Gun</h3>
-        <p class="card-desc">Arma Dorada · Visera de Cuero</p>
-        <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
-      </div>
-    </div>
-  </div>
-
-      
-    
-</section>
+        <!-- Gorra L15 -->
+        <div class="card">
+          <div class="card-badge">PREMIUM</div><div class="card-price-float">$19</div>
+          <div class="card-img-wrapper"><img src="imagenes/L15.jpeg" loading="lazy" alt="Tio Rico Gun"/></div>
+          <div class="card-info">
+            <h3 class="card-title">Tío Rico — Golden Gun</h3>
+            <p class="card-desc">Arma Dorada · Visera de Cuero</p>
+            <button class="btn-comprar"><span>Comprar</span><span class="arrow">→</span></button>
+          </div>
+        </div>
+      </div>    
+    </section>
 
   </main>
 
   <footer>
     <div class="footer-links">
       <a href="#" class="logo">CAT<span>PS</span></a>
-      <p style="margin-top: 10px; color: var(--gray); font-size: 0.9rem;">Elevando la cultura urbana desde Anzoátegui.</p>
+      <p>Elevando la cultura urbana desde Anzoátegui.</p>
     </div>
-    <div style="text-align: right;">
-      <a href="https://instagram.com/catps3007" target="_blank" style="color: var(--white); text-decoration: none; font-weight: bold; font-size: 1.2rem;">@CATPS3007</a>
-      <p style="margin-top: 10px; color: var(--gray); font-size: 0.8rem;">© 2026 CATPS. Todos los derechos reservados.</p>
+    <div class="footer-right">
+      <a href="https://instagram.com/catps3007" target="_blank">@CATPS3007</a>
+      <p>© 2026 CATPS. Todos los derechos reservados.</p>
     </div>
   </footer>
 
@@ -2586,7 +2652,7 @@
         const card = this.closest('.card');
         const name = card.querySelector('.card-title').textContent;
         const price = card.querySelector('.card-price-float').textContent;
-        const phone = '+584122335469';
+        const phone = '+584148233342';
         
         // A lo venezolano y sin rodeos
         const msg = encodeURIComponent(`¡Épale CATPS! Me activo de una con esta gorra: ${name} — ${price}`);
